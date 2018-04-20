@@ -23,15 +23,15 @@ android {
             main {
                 jni.srcDirs = []
                 release.jniLibs.srcDirs = ['../deps/node-8.9.3/prebuilt/32bit/nosymbols'
-                                   //, '../deps/node-8.9.3/prebuilt/64bit/nosymbols'
+                                           , '../deps/node-8.9.3/prebuilt/64bit/nosymbols'
                 ]
                 debug.jniLibs.srcDirs = ['../deps/node-8.9.3/prebuilt/32bit/symbols'
-                                           //, '../deps/node-8.9.3/prebuilt/64bit/symbols'
+                                         , '../deps/node-8.9.3/prebuilt/64bit/symbols'
                 ]
             }
         }
     }
-    packagingOptions{
+    packagingOptions {
         doNotStrip "**/*/libnode.so"
     }
     buildTypes {
@@ -77,7 +77,7 @@ task sourcesJar(type: Jar) {
 }
 
 task javadoc(type: Javadoc) {
-    failOnError  false
+    failOnError false
     source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     classpath += configurations.compile
@@ -97,4 +97,4 @@ artifacts {
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.liquidplayer'
+group = 'com.github.liquidplayer'
